@@ -1,20 +1,20 @@
 import { useState } from "react";
-import Counter from "../components/Counter";
+import Cars from "../components/inventory";
 
 export default function Inventory() {
-    const [counters, setCounters] = useState([
+    const [prices, basePrice] = useState([
         {
-          title:'Red Cars',
-          initialCount: 0
+          model:'Impreza',
+          basePrice: 25000
         },{
-          title:'Blue Cars',
-          initialCount: 22
+          model:'Supra',
+          basePrice: 42000
         },{
-          title:'White Cars',
-          initialCount: 14
+          model:'Skyline',
+          basePrice: 140000
         },{
-          title:'Black Cars',
-          initialCount: 30
+          model:'Mustang',
+          basePrice: 30000
         }
       ])
       
@@ -23,7 +23,7 @@ export default function Inventory() {
         <div className="App">
         <h1>Inventory</h1>
         {
-            counters.map((counter) => <Counter title={counter.title} initialCount={counter.initialCount}/>)
+            prices.map((price) => <Cars model={price.model} basePrice={price.basePrice}/>)
         }
         </div>
     );
