@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './views/Home'
 import Inventory from './views/Inventory'
 import Profile from './views/Profile'
+import CarSingle from './views/CarSingle'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
         <Route path='/inventory' element={<Inventory/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/' element={<Home/>} />
+        <Route path='/inventory/:id' element={<CarSingle/>} />
       </Routes>
     </BrowserRouter>
   )

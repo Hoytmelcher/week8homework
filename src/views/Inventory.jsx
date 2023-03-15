@@ -1,29 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cars from "../components/inventory";
 
 export default function Inventory() {
-    const [prices, basePrice] = useState([
-        {
-          model:'Impreza',
-          basePrice: 25000
-        },{
-          model:'Supra',
-          basePrice: 42000
-        },{
-          model:'Skyline',
-          basePrice: 140000
-        },{
-          model:'Mustang',
-          basePrice: 30000
-        }
-      ])
+    const [cars, setCars] = useState([])
+  useEffect(() => {
+    async function getCars() {
+      const response = await fetch(`https://my-json-server.typicode.com/Llang8/cars-api/cars`)
+      const data = await response.json()
+      setCars(data)
+    }
+    getCars()
+  }, [])
       
       
     return (
         <div className="App">
         <h1>Inventory</h1>
         {
-            prices.map((price) => <Cars model={price.model} basePrice={price.basePrice}/>)
+            cars.map((car) => <Cars model={car.name} basePrice={car.selling_price} key={car.id} />)
         }
         </div>
     );
