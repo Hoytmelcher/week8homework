@@ -17,7 +17,7 @@ export default function Inventory() {
         <div className="App">
         <h1>Inventory</h1>
         {
-            cars.map((car) => <Cars model={car.name} basePrice={car.selling_price} key={car.id} />)
+            cars.map((car) => <Cars model={car.name} basePrice={car.selling_price} key={car.id} id={car.id}/>)
         }
         </div>
     );
