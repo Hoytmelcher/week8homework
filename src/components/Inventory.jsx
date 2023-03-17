@@ -5,7 +5,7 @@ export default function Cars(props) {
     return (
         <div className="car">
             <h2>{props.model || 'N/A'}</h2>
-            <p> Price: { props.basePrice } </p>
+            <p> Price: { props.price } </p>
             {
                 (props.hideLink) ?
                 <></> :
@@ -13,4 +13,4 @@ export default function Cars(props) {
             }
         </div>
     )
-}
+} 
